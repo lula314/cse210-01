@@ -14,7 +14,7 @@ namespace cse210_01
             Console.WriteLine($"{seven}|{eight}|{nine}");
         }
 
-        static string CheckIfWon(string one, string two, string three, string four, string five, string six, string seven, string eight, string nine)
+        static string CheckIfWon(string one, string two, string three, string four, string five, string six, string seven, string eight, string nine, int i)
         {
             if ((one == "x" && two == "x" && three == "x") || (four == "x" && five == "x" && six == "x") || (seven == "x" && eight == "x" && nine == "x") || (one == "x" && four == "x" && seven == "x") || (two == "x" && five == "x" && eight == "x") || (three == "x" && six == "x" && nine == "x") || (one == "x" && five == "x" && nine == "x") || (three == "x" && five == "x" && seven == "x"))
             {
@@ -24,8 +24,14 @@ namespace cse210_01
             {
                 return "o";
             }
+            else if (i == 10)
+            {
+                return "tie";
+            }
             else
-                {return "false";}
+            {
+                return "false";
+            }
         }
 
         static void Main(string[] args)
@@ -111,7 +117,7 @@ namespace cse210_01
                 }
                 i++;
                 answerCheck = true;
-                winCheck = CheckIfWon(one, two, three, four, five, six, seven, eight, nine);
+                winCheck = CheckIfWon(one, two, three, four, five, six, seven, eight, nine, i);
             }
             PrintBoard(one, two, three, four, five, six, seven, eight, nine);
             if (winCheck == "x")
@@ -119,7 +125,13 @@ namespace cse210_01
                 Console.WriteLine("Congratulations! X has won! Thanks for playing :D");
             }
             else if (winCheck == "o")
+            {
                 Console.WriteLine("Congratulations! O has won! Thanks for playing :D");
+            }
+            else if (winCheck == "tie")
+            {
+                Console.WriteLine("It's a tie! Try again");
+            }
         }
     }
 }
