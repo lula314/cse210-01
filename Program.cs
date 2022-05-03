@@ -24,7 +24,7 @@ namespace cse210_01
             {
                 return "o";
             }
-            else if (i == 10)
+            else if (i == 11)
             {
                 return "tie";
             }
